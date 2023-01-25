@@ -1,12 +1,14 @@
 import { Text, View, ScrollView, Button } from 'react-native';
 
 import contacts from '../contacts';
+import { NavBar } from './Navigation';
 
 export const MappedList = ({navigation}) => {
     return (
         <ScrollView>
+            <NavBar navigation={navigation} />
             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                <Button 
+                {/* <Button 
                     title='Go to List Maker'
                     onPress={() => navigation.navigate('Name Toggler/Flat List')}
                 />  
@@ -14,7 +16,7 @@ export const MappedList = ({navigation}) => {
                 <Button 
                 title='Go to Pomodoro'
                 onPress={() => navigation.navigate('Pomodoro Plus')}
-                />                
+                />                 */}
             </View>
             <Text>Mapped list</Text>
             {contacts.map(item => (

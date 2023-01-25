@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#cde',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        height: 230,
-        padding: 10,
+        height: 250,
+        padding: 5,
         borderRadius: 20,
-        marginTop: 30,
+        marginTop: 5,
       },
       circle: {
         height: 75,

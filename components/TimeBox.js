@@ -14,10 +14,10 @@ const TimeBox = (props) => {
 }
 const styles = StyleSheet.create({
     timerText: {
-        fontSize: 30,
+        fontSize: 20,
     },
     currentTimer: {
-        fontSize: 32,
+        fontSize: 25,
         color: "#3333dd",
     }
 })

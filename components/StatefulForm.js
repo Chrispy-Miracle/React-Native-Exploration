@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native'
 
+import { NavBar } from './Navigation'
+
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
     }
 }
 )
-export const StatefulForm = () => {
+export const StatefulForm = ({navigation}) => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -77,7 +79,6 @@ export const StatefulForm = () => {
     const verifyForm = () => {
         if (nameVerified && phoneVerified && emailVerified
             ) {
-            console.log("true")
             setIsFormVerified(true)
         }
         else {
@@ -96,12 +97,11 @@ export const StatefulForm = () => {
         else if (isFormVerified === false){
             console.log('form is sucky')
         }
-        
     }
-
 
     return (
         <View style={styles.container}>
+            <NavBar navigation={navigation} />
             <Text style={styles.header}>This is a Stateful Form</Text>
             {!nameVerified && !isFormVerified && hasAttemptedSubmit && 
                 <Text style={{color: '#bb3333'}}>Name must be at least 3 characters</Text>

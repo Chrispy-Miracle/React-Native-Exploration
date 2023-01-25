@@ -3,25 +3,16 @@ import { StatusBar } from 'expo-status-bar';
 
 import Counter from './Counter';
 import Timer from './Timer';
+import { NavBar } from './Navigation';
 
 export const PomodoroPlus = ({navigation}) => {
     return (
         <ScrollView>
+            <NavBar navigation={navigation}/>
             <View style={styles.container}>
             <Text style={styles.header}>Pomodoro Timer</Text>
             <Text>Mobile App Development with React Native: </Text>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                <Button 
-                    title='Go to List Maker'
-                    onPress={() => navigation.navigate('Name Toggler/Flat List')}
-                />  
-                <View style={{width: 10}}></View>          
-                <Button 
-                title='Go to Mapped List'
-                onPress={() => navigation.navigate('Mapped List With Scroll View')}
-                />                
-            </View>
-            <Button title='Stateful Form' onPress={() => navigation.navigate('Stateful Form')} />
+            
             <Timer />
             <Counter />
             
@@ -37,11 +28,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      backgroundColor: '#acbdef'
+      backgroundColor: '#acbdef',
+      height: '100%'
     },
     header: {
-      marginTop: 30,
-      fontSize: 40,
+      marginTop: 10,
+      fontSize: 35,
       color: '#445566',
       fontWeight: 'bold',
       textShadowOffset: {

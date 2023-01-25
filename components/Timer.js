@@ -93,20 +93,24 @@ const Timer = () => {
                 <TimeBox wOrB='Work' minutes={workMinutes} seconds={workSeconds} workOrBreak={workOrBreak} />
                 <TimeBox wOrB='Break' minutes={breakMinutes} seconds={breakSeconds} workOrBreak={workOrBreak}/>   
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text for="workInput">Set Work Minutes:</Text>
-                    <TextInput id="workInput" keyboardType="numeric" style={styles.input} value={workMinutes} onChangeText={setWorkMinutes} />  
+                    <View >
+                        <Text for="workInput">Set Work Minutes:</Text>
+                        <TextInput id="workInput" keyboardType="numeric" style={styles.input} value={workMinutes} onChangeText={setWorkMinutes} />  
+                    </View>
+                    <View style={{width: 30}}></View>
+                    <View>
+                        <Text for="breakInput">Set Break Minutes:</Text>
+                        <TextInput id="breakInput" keyboardType="numeric" style={styles.input} value={breakMinutes} onChangeText={setBreakMinutes} />  
+                    </View>                     
                 </View>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text for="breakInput">Set Break Minutes:</Text>
-                    <TextInput id="breakInput" keyboardType="numeric" style={styles.input} value={breakMinutes} onChangeText={setBreakMinutes} />  
-                </View>                               
+                              
             </View>
         </View>
     )
 }
 const styles = StyleSheet.create({
     input: {
-        height: 40,
+        height: 30,
         width: 75,
         backgroundColor: "#eee",
         color: "#444",

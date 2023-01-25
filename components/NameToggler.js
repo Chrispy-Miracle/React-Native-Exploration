@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Button, Switch, FlatList, SafeAreaView, ScrollV
 import { useEffect, useState } from 'react';
 import contacts, { compareNames } from '../contacts';
 import Row from './Row';
+import { NavBar } from './Navigation';
 
 // console.log(contacts)
 export const NameToggler = ({navigation}) => {
@@ -15,9 +16,10 @@ export const NameToggler = ({navigation}) => {
     const renderItem = obj => <Row {...obj.item} />
     return (
             <View style={styles.container}>
+                <NavBar navigation={navigation} />
                 <Text style={styles.headerText}>List Maker</Text>
 
-                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                {/* <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                 <Button 
                     title='Go to Pomodoro'
                     onPress={() => navigation.navigate('Pomodoro Plus')}
@@ -27,7 +29,7 @@ export const NameToggler = ({navigation}) => {
                 title='Go to Mapped List'
                 onPress={() => navigation.navigate('Mapped List With Scroll View')}
                 />                
-            </View>
+            </View> */}
                     <View style={styles.flexRow}>
                     <Button color='#557654' title="Toggle Names" onPress={()=> setNameToggle(!nameToggle)}></Button>
                     <View style={{width: 10}}></View>
