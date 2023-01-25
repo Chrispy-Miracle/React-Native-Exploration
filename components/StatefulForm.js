@@ -75,15 +75,7 @@ export const StatefulForm = () => {
     useEffect(verifyEmail, [email])
 
     const verifyForm = () => {
-        // Why can't I seem to use my verify functions here?
         if (nameVerified && phoneVerified && emailVerified
-            // name.length >= 3 
-            // && +phone >= 0 
-            // && +phone 
-            // && phone.length === 10 
-            // && email.includes('@') 
-            // && email.includes('.') 
-            // && email.length >= 6
             ) {
             console.log("true")
             setIsFormVerified(true)
