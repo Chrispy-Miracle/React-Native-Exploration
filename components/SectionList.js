@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View,Text, SectionList, Button, StyleSheet } from 'react-native'
+import { View, Text, TextInput, SectionList, Button, StyleSheet } from 'react-native'
 import contacts from '../contacts'
 
 import { NavBar } from './Navigation'
@@ -19,22 +19,35 @@ const styles = StyleSheet.create({
     itemContainer: {
         backgroundColor: '#bbbbbb',
         margin: 5,
-        width: '80%',
+        width: '85%',
         padding: 5,
         borderRadius: 3
-    } 
+    },
+    textInput: {
+        textAlign: 'right',
+        backgroundColor: '#dddddd',
+        borderColor: '#000000',
+        borderWidth: 1,
+        borderRadius: 5,
+        height: 30,
+        paddingRight: 10,
+        margin: 5,
+        width: 120,
+        marginLeft: '55%'
+    }
 })
 
 export const SectList = ({navigation}) => {
     const [contactState, setContactState] = useState([...contacts])
     const [phone, setPhone] = useState('')
+    const[editPhoneOn, setEditPhoneOn] = useState(false)
     
     const contactsByLetter = contactState.reduce((obj, contact) => {
         const firstLetter = contact.name[0].toUpperCase()
         return {
             // clone obj
             ...obj,
-            // overide key with that first letter and set it to that array, 
+            // overide key with that first letter and set it to that array (or an empty array), 
             // plus the new contact that starts with that letter
             [firstLetter]: [...(obj[firstLetter] || []), contact],
         }
@@ -44,19 +57,22 @@ export const SectList = ({navigation}) => {
         title: letter,
         data: contactsByLetter[letter]
     }))
+    //data format:
     // const data = [{title: 'A', data: [{name: 'Bob', phone: '123'}, {name: 'Mary', phone: '345'},{name: 'Sue', phone: '321'},]}]
+    // another way to assign props:
     // <Row {...item} />
 
-    const editPhone = () => console.log("Edit phone pressed")
+    const editPhone = () => setEditPhoneOn(editPhoneOn ? false : true)
 
     const renderItem = ({item}) => (
         <View style={styles.itemContainer}>
             <Text>{item.key}</Text>
             <Text style={{fontSize: 20}}>{item.name}</Text>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text style={{paddingLeft: 40, paddingRight: 20}}>{item.phone}</Text>
-            <Button title='Edit Phone' color='#ccddee' onPress={editPhone} />
+                <Text style={{paddingLeft: 45, paddingRight: 20}}>{item.phone}</Text>
+                <Button title='Edit Phone' color='#ccddee' onPress={editPhone} />
             </View>
+            {editPhoneOn && <TextInput style={styles.textInput} placeholder={item.phone}></TextInput>}
         </View>
     )
 

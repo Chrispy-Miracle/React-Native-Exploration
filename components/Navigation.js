@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#000',
     width: '100%',
+    padding: 10
     }
 })
 
