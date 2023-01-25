@@ -12,10 +12,8 @@ export const PomodoroPlus = ({navigation}) => {
             <View style={styles.container}>
             <Text style={styles.header}>Pomodoro Timer</Text>
             <Text>Mobile App Development with React Native: </Text>
-            
             <Timer />
             <Counter />
-            
             <StatusBar style="auto" />
             </View>      
         </ScrollView> 

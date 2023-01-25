@@ -9,6 +9,7 @@ import  { NameToggler } from './components/NameToggler';
 import { PomodoroPlus } from './components/PomodoroPlus';
 import { MappedList } from './components/MappedList';
 import { StatefulForm } from './components/StatefulForm';
+import { SectList } from './components/SectionList';
 
 
 const Stack = createNativeStackNavigator()
@@ -34,6 +35,10 @@ export default function App() {
         <Stack.Screen 
           name="Stateful Form"
           component={StatefulForm}
+        />
+        <Stack.Screen 
+          name="Section List"
+          component={SectList}
         />
       </Stack.Navigator>
     </NavigationContainer>

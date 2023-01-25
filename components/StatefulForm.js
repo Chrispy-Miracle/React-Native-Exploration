@@ -49,7 +49,6 @@ export const StatefulForm = ({navigation}) => {
 
     const handleNameChange = nameInputVal => {
         setName(nameInputVal)
-        
     }
 
     const handlePhoneChange = phoneInputVal => {
@@ -87,15 +86,14 @@ export const StatefulForm = ({navigation}) => {
     }
 
     useEffect(verifyForm, [nameVerified, phoneVerified, emailVerified, isFormVerified])
-    useEffect(() => console.log(isFormVerified), [name, phone, email, isFormVerified])
 
     const handleSubmit = () => {
         setHasAttemptedSubmit(true)
         if (isFormVerified === true) {
-            console.log('form is good')
+            console.log('form verified')
         }
         else if (isFormVerified === false){
-            console.log('form is sucky')
+            console.log('form unverified')
         }
     }
 

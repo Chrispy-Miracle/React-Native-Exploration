@@ -1,4 +1,4 @@
-const NUM_CONTACTS = 600;
+const NUM_CONTACTS = 300;
 
 const firstNames = ["Abby", "Bob", "Charles", "David", "Ernie", "Fabio", "George", "Joe", "Bob", "Carl", "Reynold","Debbie", "Marge", "Claire", "Melissa", "Natalie", "Olga", "Rachelle", "Sam", "Zebediah"]
 const lastNames = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
