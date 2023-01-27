@@ -6,22 +6,22 @@ const styles = StyleSheet.create({
         color: '#fff',
         alignSelf:'flex-end',
         padding: 10,
-        textAlign:'center',
+        textAlign: 'center',
         backgroundColor:'#3366ff',
         maxWidth: 230,
-        borderRadius: 50
+        borderRadius: 50,
+        marginBottom: 10
     },
     response: {
         fontSize: 18,
         color: '#000',
         alignSelf:'flex-start',
-        justifyContent: 'center',
-        // margin: 10,
         padding: 10,
         textAlign:'center',
         backgroundColor:'#ddd',
         maxWidth: 200,
-        borderRadius: 50
+        borderRadius: 50,
+        marginBottom: 10 
     }
 })
 

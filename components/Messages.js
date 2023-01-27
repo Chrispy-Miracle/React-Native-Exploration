@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         height: 45,
         width: 45,
-        margin: 10,
+        marginRight: 10,
+        marginLeft: 10,
         borderColor: '#999',
         borderWidth: 1,
     },
@@ -34,7 +35,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         height: 45,
         width: 45,
-        margin: 10,
+        marginLeft: 10,
+        marginRight: 10,
         borderColor: '#555',
         borderWidth: 2
     },
@@ -56,10 +58,10 @@ export const Messages = (props) => {
     const renderItem = ({item}) => {
         return (
             <View>
-            <View style={{alignItems: 'center'}}>
-                <Text styles={{marginTop: 10}}>{`${item.timestamp}`}</Text>
+            <View style={{alignItems: 'center', marginTop: 10, color: '#555'}}>
+                <Text styles={{}}>{`${item.timestamp}`}</Text>
             </View>  
-                <View style={{AlignSelf: 'flex-start', flexDirection: 'row', justifyContent: `${item.type === 'message' ? 'flex-end' : 'flex-start'}`}}>
+                <View style={{flexDirection: 'row', justifyContent: `${item.type === 'message' ? 'flex-end' : 'flex-start'}`}}>
                     {item.type === 'response' && <View style={styles.responseAvatar}><Text style={{color: '#fff'}}>Them</Text>
                     </View>}
                     <MessageText messageType={item.type} content={item.content} /> 
@@ -77,7 +79,7 @@ export const Messages = (props) => {
 
     const handleSendMessage = () => {
         const date = new Date
-        const timeStamp = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes()}${date.getHours() > 12 ? 'pm' : 'am'}`
+        const timeStamp = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes() <= 9 ? "0" + date.getMinutes() : date.getMinutes()}${date.getHours() > 12 ? 'pm' : 'am'}`
         textInputState && setMessageState([...messageState, {type: 'message', content: `${textInputState}`, timestamp: `${timeStamp}`}, {type: 'response', content: "And a quick response!", timestamp: `${timeStamp}`}])
         setTextInputState('')
     }
