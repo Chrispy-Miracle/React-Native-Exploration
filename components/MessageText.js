@@ -5,22 +5,22 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#fff',
         alignSelf:'flex-end',
-        padding: 10,
+        padding: 8,
         textAlign: 'center',
         backgroundColor:'#3366ff',
         maxWidth: 230,
-        borderRadius: 50,
+        borderRadius: 20,
         marginBottom: 10
     },
     response: {
         fontSize: 18,
         color: '#000',
         alignSelf:'flex-start',
-        padding: 10,
+        padding: 8,
         textAlign:'center',
         backgroundColor:'#ddd',
         maxWidth: 200,
-        borderRadius: 50,
+        borderRadius: 20,
         marginBottom: 10 
     }
 })

@@ -13,6 +13,13 @@ const messages = [
     {type: "message", content: "where we going?", timestamp: 'Tues Jan 26, 4:20pm'}
 ]
 
+const responses = ['ok', 'really?', 'for real', 'dope', 'no way', 'wow!', 'omg', 'wtf?!', 'lol', 'lolz', 'lolmfao', 'thats creepy af', 'for real?', 'damn', 'oh snap!', 'gtfo', 'no cap', 'tldr', 'new phone, who dis?', 'I love you', 'fuck off', 'leave me alone', 'weirdo', 'ok....', '???', "good night", 'whatcha doin?', 'stop copying me', 'I know you are, but what am I?', 'thats great!', 'aw chea!', 'f to the yes!', 'hellz yeah!', 'I think you are misunderstanding me', 'I mean, I guess...', "do you by chance know the air speed velocity of an unladen swallow?", 'blah', 'blah blah blah', 'Do I know you?']
+
+const getRandomResponse = () => {
+    const randomNumber = Math.floor(Math.random() * responses.length)
+    return responses[randomNumber]
+}
+
 const styles = StyleSheet.create({
     userAvatar: {
         alignSelf: 'flex-end',
@@ -44,8 +51,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: -125,
-        borderColor: '#cccccc',
+        marginBottom: -145,
+        paddingRight: 15,
+        // padding: 3,
+        backgroundColor: '#eeeeee',
+        borderColor: '#dddddd',
         borderTopWidth: 2,
         borderBottomWidth: 2
     }
@@ -80,7 +90,7 @@ export const Messages = (props) => {
     const handleSendMessage = () => {
         const date = new Date
         const timeStamp = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes() <= 9 ? "0" + date.getMinutes() : date.getMinutes()}${date.getHours() > 12 ? 'pm' : 'am'}`
-        textInputState && setMessageState([...messageState, {type: 'message', content: `${textInputState}`, timestamp: `${timeStamp}`}, {type: 'response', content: "And a quick response!", timestamp: `${timeStamp}`}])
+        textInputState && setMessageState([...messageState, {type: 'message', content: `${textInputState}`, timestamp: `${timeStamp}`}, {type: 'response', content: getRandomResponse(), timestamp: `${timeStamp}`}])
         setTextInputState('')
     }
 
@@ -96,8 +106,8 @@ export const Messages = (props) => {
             renderItem={renderItem}
         />
         <View style={styles.messageInput}>
-            <TextInput style={{fontSize: 22, padding: 10, marginBottom: 10, marginRight: 20, textAlign: 'right'}} placeholder='Say something sucka!' onChangeText={handleTextChange} value={textInputState} />
-            <Button style={{marginBottom: 30}} title="Send" onPress={handleSendMessage} />
+            <TextInput style={{fontSize: 22, marginRight: 20, textAlign: 'right'}} placeholder='Say something sucka!' onChangeText={handleTextChange} value={textInputState} />
+            <Button title="Send" onPress={handleSendMessage} />
         </View>
       </KeyboardAvoidingView>
     )
