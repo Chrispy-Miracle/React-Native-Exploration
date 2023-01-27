@@ -86,6 +86,7 @@ export const StatefulForm = ({navigation}) => {
     }
 
     useEffect(verifyForm, [nameVerified, phoneVerified, emailVerified, isFormVerified])
+    useEffect(() => console.log(isFormVerified), [name, phone, email, isFormVerified])
 
     const handleSubmit = () => {
         setHasAttemptedSubmit(true)

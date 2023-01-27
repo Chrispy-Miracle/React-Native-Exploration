@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View, Text, TextInput, SectionList, Button, StyleSheet } from 'react-native'
+import { View, Text, TextInput, SectionList, Button, StyleSheet, Image } from 'react-native'
 import contacts from '../contacts'
 
 import { NavBar } from './Navigation'
@@ -79,6 +79,7 @@ export const SectList = ({navigation}) => {
     return (
         <View>
             <NavBar navigation={navigation} />
+            <Image style={{height: 165, width: 350, marginTop: 20, marginLeft: 3, borderRadius: 15, borderColor: '#666', borderWidth: 3}} source={require("../assets/train.jpg")} />
             <View style={{paddingLeft: 20}}>
                 <Text style={{fontSize: 25}}>Section List</Text>
                 <SectionList 
